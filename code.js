@@ -1,44 +1,50 @@
-let locationOne = 3;
-let locationTwo = 4;
-let locationThree = 5;
+let localizacao1 = 2;
+let localizacao2 = 3; 
+let localizacao3 = 4;
 
-// vai manter o palpite atual do usuario
-let guess;
+let escolhaUsuario;
 
-// vai conter os acertos do usuario
-let hits = 0;
+let tentativasFeitas = 0;
 
-// vai conter os palpites do usuario
-let guesses = 0;
+let acertos = 0;
 
-// vai manter o registro se o navio afundou ou não
-let isSunk = false;
+let navio = false;
 
-while(isSunk === false) {
-  
-  // Obter a entrada do usuario
-  guess = prompt("Informe um palpite: ");
+while(navio == false) {
 
-  // verifica se é valido
-  if(guess < 0 || guess > 6) {
-    Alert('Os Valores são invalidos');
+  escolhaUsuario = prompt("Escolha um numero (0 a 6)");
 
+  if(escolhaUsuario < 0 || escolhaUsuario > 6) {
+    alert("Valores invalidos!");
+  } else if(escolhaUsuario == null) {
+    navio = true;
+    alert("Jogo encerrado.");
   } else {
-    guesses = guesses + 1;
 
-    if(guess == locationOne || guess == locationTwo || guess == locationThree) {
-      hits = hits + 1;
+    tentativasFeitas = tentativasFeitas + 1;
 
-      if(hits == 3) {
-        isSunk = true;
-        alert("Você afundou meu navio de guerra");
-      
-      } // Fim se
+    if(escolhaUsuario == localizacao1 || escolhaUsuario == localizacao2 || escolhaUsuario == localizacao3) {
 
-    } // FIm se 
+      acertos = acertos + 1;
   
-  } // Fim senao
+      if(acertos == 3) {
+        navio = true;   
+        alert("você afundou o navio");
+      }
+    
+    }
 
-} // Fim while
+  }
 
-alert('Você acertou: '+hits);
+}
+
+alert("Essa foi sua pontuação "+tentativasFeitas);
+
+// base de um futuro codigo
+/*function randomF(min, max) {
+  number = Math.random() * (max - min)
+  return Math.floor(number) ;
+}
+
+console.log(randomF(0, 6));
+*/
