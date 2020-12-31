@@ -1,7 +1,9 @@
+// armazena a localização no navio aleatorio
+let randomLoc = Math.floor(Math.random() * 6);
 // declarar variaveis da localização do navio
-let location1 = 2;
-let location2 = 3; 
-let location3 = 4;
+let location1 = randomLoc;
+let location2 = randomLoc; 
+let location3 = randomLoc;
 // armazena escolha do usuara
 let escolhaUser;
 // armazena as tentativas
@@ -55,13 +57,4 @@ while(navio == false) {
 
 }
 // ao termino do jogo, uma estatistica sobre pontuação do jogador
-alert("Essa foi sua pontuação "+tentativasFeitas+"\n Precisão de "+3/tentativasFeitas);
-
-// base de um futuro codigo
-/*function randomF(min, max) {
-  number = Math.random() * (max - min)
-  return Math.floor(number) ;
-}
-
-console.log(randomF(0, 6));
-*/
+alert("Essa foi sua pontuação "+tentativasFeitas+"\n Precisão de "+(3/tentativasFeitas).toFixed(2));
