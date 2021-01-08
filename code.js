@@ -1,4 +1,4 @@
-// armazena a localização no navio aleatorio
+// função responsavel por fazer a verificação se uma localização é igual a outra
 function vRandom(location1, location2, location3) {
   let newNumber = ''
 
@@ -12,6 +12,7 @@ function vRandom(location1, location2, location3) {
   }
 }
 
+// cria função responsavel por gerar um numero aleatorio
 function getRandom(min, max) {
   const random = Math.floor(Math.random() * (max - min) + min);
   return random;
@@ -54,31 +55,39 @@ while(navio == false) {
   else {
     // então tentativas vai receber 1
     tentativasFeitas = tentativasFeitas + 1;
-
+    // console para teste
     console.log(location1, location2, location3);
     vRandom(location1, location2, location3);
+    console.log(location1, location2, location3);
 
-    //compara se o usuario acertou alguma localização
+    // compara se acertos vale 0
     if(acertos == 0) {
+      //compara se o usuario acertou a primeira localização
       if(escolhaUser === location1) { 
         acertos = acertos + 1;
         alert("Acertou!!");
       } else {
         alert("Errou!!");
       }
-    } else if(acertos == 1) {
+    } 
+    // compara se acertos vale 1
+    else if(acertos == 1) {
+      //compara se o usuario acertou a segunda localização
       if(escolhaUser === location2) {
         acertos = acertos + 1;
         alert("Acertou!!");
       } else {
         alert("Errou!!");
       }
-    } else if(acertos == 2) {
+    } 
+    // compara se acerto vale  2
+    else if(acertos == 2) {
+      //compara se o usuario acertou a terceira localização
       if(escolhaUser === location3) {
         acertos = acertos + 1;
         alert("Acertou!!");
 
-        // caso acerte, afunde o navio e encerre o jogo
+        // acertos vale 3 então afunde o barco
         navio = true;   
         alert("você afundou o navio");
       } else {
@@ -90,15 +99,5 @@ while(navio == false) {
 
 }
 
-
 // ao termino do jogo, uma estatistica sobre pontuação do jogador
-alert("Essa foi sua pontuação "+tentativasFeitas+"\n Precisão de "+(3/tentativasFeitas).toFixed(2));
-
-
-
-/*
-
-    
-
-    
-*/
+alert("Essa foi sua pontuação: "+tentativasFeitas+" Precisão de: "+(3/tentativasFeitas).toFixed(2));
